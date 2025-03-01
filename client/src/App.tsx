@@ -1,11 +1,21 @@
-import Chatbot from "./components/Chatbot";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Navbar from "./components/Navbar";
+import Home from "./pages/Home";
+import Projects from "./pages/Projects";
+import About from "./pages/About";
+import Contact from "./pages/Contact";
 
 function App() {
     return (
-        <div className="min-h-screen flex flex-col items-center justify-center bg-gray-900 text-white p-5">
-            <h1 className="text-3xl font-bold mb-6">Chef Henry's Portfolio 🍳💻</h1>
-            <Chatbot />
-        </div>
+        <Router>
+            <Navbar />
+            <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/projects" element={<Projects />} />
+                <Route path="/about" element={<About />} />
+                <Route path="/contact" element={<Contact />} />
+            </Routes>
+        </Router>
     );
 }
 
