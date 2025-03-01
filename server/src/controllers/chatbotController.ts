@@ -1,11 +1,12 @@
-import axios from 'axios';
-import { Request, Response, NextFunction } from 'express';
-import dotenv from 'dotenv';
+import axios from "axios";
+import { Request, Response, NextFunction } from "express";
+import dotenv from "dotenv";
+import chatbotInstruction from "./chatbotInstructions"; // Import system instruction
 
 dotenv.config();
 
-const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
 const GEMINI_API_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-pro-latest:generateContent";
+const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
 
 export const chatbotResponse = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
     try {
@@ -16,18 +17,18 @@ export const chatbotResponse = async (req: Request, res: Response, next: NextFun
             return;
         }
 
-        console.log("🔹 Sending request to Gemini API...");
-        
         const response = await axios.post(
             `${GEMINI_API_URL}?key=${GEMINI_API_KEY}`,
             {
-                contents: [{ parts: [{ text: message }] }]
+                contents: [
+                    { role: "user", parts: [{ text: chatbotInstruction }] },  // System instruction as "user"
+                    { role: "user", parts: [{ text: message }] } // User input
+                ]
             }
         );
 
-        console.log("✅ Gemini API Response:", response.data);
-
-        const botReply = response.data.candidates?.[0]?.content?.parts?.[0]?.text || "Sorry, I didn't understand that.";
+        // Extract chatbot response
+        const botReply = response.data.candidates?.[0]?.content?.parts?.[0]?.text || "I'm not sure how to respond to that.";
 
         res.json({ reply: botReply });
 
@@ -36,4 +37,3 @@ export const chatbotResponse = async (req: Request, res: Response, next: NextFun
         res.status(500).json({ error: "Failed to process request", details: error.response?.data || error.message });
     }
 };
-
