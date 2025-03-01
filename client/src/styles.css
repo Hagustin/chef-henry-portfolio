@@ -1,0 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom styles */
+.container {
+    @apply max-w-6xl mx-auto px-4;
+}
+
+.page-container {
+    @apply min-h-screen flex flex-col items-center justify-center text-white;
+}
+
+.section-title {
+    @apply text-3xl font-bold mb-6;
+}
+
+.nav-link {
+    @apply hover:underline text-lg;
+}
