@@ -7,6 +7,7 @@ dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 3001;
+const MONGODB_URI = process.env.MONGODB_URI as string;
 
 app.use(cors());
 app.use(express.json());
@@ -16,14 +17,14 @@ app.get('/', (req, res) => {
   res.send('Welcome to Chef Henry\'s Portfolio API!');
 });
 
-// MongoDB connection
-mongoose.connect(process.env.MONGODB_URI!)
+// MongoDB Atlas connection
+mongoose.connect(MONGODB_URI)
   .then(() => {
-    console.log('Connected to MongoDB');
+    console.log('✅ Connected to MongoDB Atlas');
     app.listen(PORT, () => {
-      console.log(`Server is running on http://localhost:${PORT}`);
+      console.log(`🚀 Server is running on http://localhost:${PORT}`);
     });
   })
   .catch(err => {
-    console.error('Failed to connect to MongoDB:', err);
+    console.error('❌ Failed to connect to MongoDB Atlas:', err);
   });
