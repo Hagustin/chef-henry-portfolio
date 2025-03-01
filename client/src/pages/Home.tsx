@@ -1,27 +1,20 @@
-import { useState, useEffect } from "react";
-import LoadingScreen from "../components/LoadingScreen";
 import ChatbotWidget from "../components/ChatbotWidget";
 
 function Home() {
-    const [loading, setLoading] = useState(true);
-
-    useEffect(() => {
-        setTimeout(() => setLoading(false), 3000);
-    }, []);
-
-    return loading ? (
-        <LoadingScreen onFinish={() => setLoading(false)} />
-    ) : (
-        <div className="min-h-screen flex flex-col items-center justify-center bg-gray-900 text-white text-center px-6">
-            <h1 className="text-5xl font-extrabold mb-4 tracking-wide">
-                Welcome to Henry's Portfolio
-            </h1>
-            <p className="text-lg max-w-2xl leading-relaxed text-gray-300">
-                A **former sous chef** turned **full-stack developer**, blending precision and creativity 
-                to craft **fintech solutions, automation tools, and AI-driven applications**.
-            </p>
+    return (
+        <section id="home" className="min-h-screen flex flex-col items-center justify-center bg-gray-900 text-white text-left px-6">
+            <div className="max-w-3xl">
+                <h1 className="text-5xl font-extrabold mb-4 tracking-wide text-yellow-400">Hi, my name is</h1>
+                <h2 className="text-6xl font-bold mb-4 text-white">Henry Agustin.</h2>
+                <h3 className="text-4xl font-bold mb-6 text-gray-300">I build innovative digital solutions.</h3>
+                <p className="text-lg max-w-2xl leading-relaxed text-gray-400">
+                    I’m a **former sous chef** turned **full-stack developer**, blending precision and creativity to craft **fintech solutions, automation tools, and AI-driven applications**.  
+                    Currently, I’m focused on building **scalable and user-friendly products** that solve real-world problems.
+                </p>
+            </div>
+            {/* Chatbot Icon */}
             <ChatbotWidget />
-        </div>
+        </section>
     );
 }
 
