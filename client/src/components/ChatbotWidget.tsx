@@ -15,7 +15,7 @@ function ChatbotWidget() {
         }, 4000);
 
         const timer3 = setTimeout(() => {
-            setBubbleMessage("Click here to learn who Chef Henry is.");
+            setBubbleMessage("Ask me anything!");
         }, 6000);
 
         return () => {
