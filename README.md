@@ -36,8 +36,8 @@ My full-stack developer portfolio, combining my chef background with web develop
 ```
 
 Contact:
-[**Linkdn:**](!https://www.linkedin.com/in/henry-agustin-40896374/)
 
-[**Github:**](!https://github.com/Hagustin)
+**Linkdn:**(!https://www.linkedin.com/in/henry-agustin-40896374/)
 
+**Github:**(!https://github.com/Hagustin)
 
