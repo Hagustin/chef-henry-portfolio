@@ -5,6 +5,8 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import Projects from "./pages/Projects";
 import Contact from "./pages/Contact";
+import SocialSidebar from "./components/SocialSidebar";
+import EmailSidebar from "./components/EmailSidebar";
 
 function App() {
     const [loading, setLoading] = useState(true);
@@ -18,6 +20,8 @@ function App() {
     ) : (
         <div className="scroll-smooth">
             <Navbar />
+            <SocialSidebar />
+            <EmailSidebar />
             <Home />
             <About />
             <Projects />

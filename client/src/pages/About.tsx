@@ -5,7 +5,7 @@ function About() {
             <div className="flex flex-col md:flex-row items-start max-w-5xl space-x-6">
                 {/* Profile Image (Square) */}
                 <img 
-                    src="/images/profile.jpg" 
+                    src="/images/profile.png" 
                     alt="Henry Agustin" 
                     className="w-60 h-60 md:w-72 md:h-72 object-cover shadow-lg transition-transform duration-500 transform hover:scale-105"
                 />
