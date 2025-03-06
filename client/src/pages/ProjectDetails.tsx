@@ -67,30 +67,37 @@ const ProjectDetails = () => {
                     <h2 className="text-3xl text-yellow-400 font-bold mt-8 mb-4">Future Plans</h2>
                     <p className="text-gray-300 text-lg leading-relaxed">{details.future}</p>
 
-                    {/* Performance Chart */}
-                    <div className="w-full max-w-lg sm:max-w-xl md:max-w-2xl mx-auto mt-10">
-                        <h2 className="text-3xl text-yellow-400 font-bold mb-4 text-center">Performance Metrics</h2>
-                        <Bar 
-                            data={{
-                                labels: ["Users Impacted", details.stats.transactionsPerDay ? "Transactions Per Day" : "Articles Fetched", "Growth Rate (%)"],
-                                datasets: [{
-                                    label: "Performance",
-                                    data: [
-                                        details.stats.usersImpacted,
-                                        details.stats.transactionsPerDay ?? details.stats.articlesFetched,
-                                        details.stats.growthRate
-                                    ],
-                                    backgroundColor: "rgba(255, 193, 7, 0.8)",
-                                }]
-                            }}
-                            options={{
-                                responsive: true,
-                                maintainAspectRatio: false,
-                                scales: { y: { beginAtZero: true } }
-                            }}
-                            className="h-48 sm:h-56 md:h-64 lg:h-72"
-                        />
+                    {/* Performance Chart Container */}
+                    <div className="w-full flex justify-center mt-10">
+                        <div className="w-full max-w-md sm:max-w-lg md:max-w-xl lg:max-w-2xl h-64 sm:h-72 md:h-80 lg:h-96 bg-gray-800 p-4 rounded-lg shadow-lg">
+                            <h2 className="text-3xl text-yellow-400 font-bold mb-4 text-center">Performance Metrics</h2>
+                            <Bar 
+                                data={{
+                                    labels: ["Users Impacted", details.stats.transactionsPerDay ? "Transactions Per Day" : "Articles Fetched", "Growth Rate (%)"],
+                                    datasets: [{
+                                        label: "Performance",
+                                        data: [
+                                            details.stats.usersImpacted,
+                                            details.stats.transactionsPerDay ?? details.stats.articlesFetched,
+                                            details.stats.growthRate
+                                        ],
+                                        backgroundColor: "rgba(255, 193, 7, 0.8)",
+                                    }]
+                                }}
+                                options={{
+                                    responsive: true,
+                                    maintainAspectRatio: false,
+                                    scales: {
+                                        y: {
+                                            beginAtZero: true
+                                        }
+                                    }
+                                }}
+                                className="h-full"
+                            />
+                        </div>
                     </div>
+
                 </div>
             )}
 
