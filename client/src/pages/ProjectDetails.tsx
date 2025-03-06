@@ -37,8 +37,11 @@ const ProjectDetails = () => {
         <ProjectLoadingScreen onFinish={() => setLoading(false)} />
     ) : (
         <div className="min-h-screen bg-gray-900 text-white flex flex-col items-center px-6 py-12">
-            {/* Project Title */}
-            <h1 className="text-5xl font-extrabold text-yellow-400 mb-8">{project.title}</h1>
+           {/* Project Title*/}
+            <h1 className="text-5xl font-extrabold text-yellow-400 mb-8 text-center break-words overflow-visible w-full px-4 pt-28">
+                {project.title}
+            </h1>
+
 
             {/* Project Image */}
             <div className="w-full max-w-3xl mb-6">

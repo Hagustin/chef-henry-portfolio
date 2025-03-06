@@ -4,7 +4,7 @@ function Contact() {
     const body = encodeURIComponent("Hi Henry,\n\nI came across your portfolio and would love to connect!\n\nBest,\n[Your Name]");
 
     return (
-        <section id="contact" className="min-h-screen flex flex-col items-center justify-center bg-gray-900 text-white text-center px-6">
+        <section id="contact" className="min-h-[80vh] flex flex-col items-center justify-center bg-gray-900 text-white text-left px-6 py-16">
             <h1 className="text-4xl font-bold mb-6">Let's Connect</h1>
             <p className="text-lg max-w-2xl mb-6 text-gray-300">
                 I'm actively seeking new opportunities and open to exciting projects. Whether you have a question, collaboration idea, or just want to say hello, I'd love to hear from you!

@@ -3,7 +3,7 @@ import projects from "../data/projects";
 
 function Projects() {
     return (
-        <section id="projects" className="min-h-screen flex flex-col items-center justify-center bg-gray-900 text-white text-center px-6">
+        <section id="projects" className="min-h-[80vh] flex flex-col items-center justify-center bg-gray-900 text-white text-left px-6 py-16">
             <h1 className="text-4xl font-bold mb-6">Projects</h1>
             <p className="text-lg max-w-2xl mb-8">
                 A showcase of my work, blending <span className="text-yellow-400">innovation, fintech solutions, and seamless user experiences</span>.

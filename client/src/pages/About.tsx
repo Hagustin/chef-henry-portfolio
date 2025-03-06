@@ -1,6 +1,6 @@
 function About() {
     return (
-        <section id="about" className="min-h-screen flex flex-col items-center justify-center bg-gray-900 text-white text-left px-6">
+        <section id="about" className="min-h-[80vh] flex flex-col items-center justify-center bg-gray-900 text-white text-left px-6 py-16">
             <h1 className="text-4xl font-bold mb-6">About Me</h1>
             <div className="flex flex-col md:flex-row items-start max-w-5xl space-x-6">
                 {/* Profile Image (Square) */}
