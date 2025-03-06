@@ -1,24 +1,30 @@
 import { useParams, Link } from "react-router-dom";
 import projects from "../data/projects";
 import { useEffect, useState } from "react";
+import ProjectLoadingScreen from "../components/ProjectLoadingScreen";
 
 const ProjectDetails = () => {
     const { projectId } = useParams();
-    const projectIndex = projects.findIndex((p) => p.id === projectId);
-    const project = projects[projectIndex];
+    const project = projects.find((p) => p.id === projectId);
 
-    const [visible, setVisible] = useState(false);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        setTimeout(() => setVisible(true), 300); // Smooth delayed effect
+        const timeout = setTimeout(() => {
+            setLoading(false);
+        }, 2000); // 2-second loading effect
+
+        return () => clearTimeout(timeout);
     }, []);
 
     if (!project) {
         return <div className="text-center text-red-500 text-2xl mt-10">Project not found.</div>;
     }
 
-    return (
-        <div className={`min-h-screen bg-gray-900 text-white flex flex-col items-center justify-center px-6 py-12 transition-opacity duration-700 ease-in-out ${visible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`}>
+    return loading ? (
+        <ProjectLoadingScreen onFinish={() => setLoading(false)} />
+    ) : (
+        <div className="min-h-screen bg-gray-900 text-white flex flex-col items-center justify-center px-6 py-12">
             <h1 className="text-4xl font-bold text-yellow-400 mb-6">{project.title}</h1>
             <img src={project.image} alt={project.title} className="w-full max-w-lg rounded-lg shadow-lg mb-6" />
             <p className="text-lg text-gray-300 max-w-2xl">{project.description}</p>
