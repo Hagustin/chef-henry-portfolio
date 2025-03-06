@@ -1,12 +1,13 @@
 import { useState, useEffect } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import LoadingScreen from "./components/LoadingScreen";
 import Navbar from "./components/Navbar";
+import SocialSidebar from "./components/SocialSidebar";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Projects from "./pages/Projects";
 import Contact from "./pages/Contact";
-import SocialSidebar from "./components/SocialSidebar";
-import EmailSidebar from "./components/EmailSidebar";
+import ProjectDetails from "./pages/ProjectDetails"; // Import the project details page
 
 function App() {
     const [loading, setLoading] = useState(true);
@@ -18,15 +19,21 @@ function App() {
     return loading ? (
         <LoadingScreen onFinish={() => setLoading(false)} />
     ) : (
-        <div className="scroll-smooth">
+        <Router>
             <Navbar />
             <SocialSidebar />
-            <EmailSidebar />
-            <Home />
-            <About />
-            <Projects />
-            <Contact />
-        </div>
+            <Routes>
+                <Route path="/" element={
+                    <>
+                        <Home />
+                        <About />
+                        <Projects />
+                        <Contact />
+                    </>
+                } />
+                <Route path="/project/:projectId" element={<ProjectDetails />} />
+            </Routes>
+        </Router>
     );
 }
 
